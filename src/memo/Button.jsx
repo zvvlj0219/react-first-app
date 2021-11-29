@@ -1,9 +1,9 @@
-const Button = ({color,text,onAddTask}) =>{
+const Button = ({color,text,className,onAddTask}) =>{
   return (
     <button 
       style={{backgroundColor:color}} 
-      type="button"
-      className='btn'
+      type="submit"//submit 
+      className={className}
       onClick={onAddTask}
     >{text}</button>
   )
