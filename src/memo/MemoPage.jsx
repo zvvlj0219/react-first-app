@@ -4,7 +4,7 @@ import {useState} from 'react'
 
 function MemoPage() {
   //memo data
-  const [memos] = useState([
+  const [memos,setMemos] = useState([
     {
       id:1,
       text:'sony',
@@ -15,10 +15,23 @@ function MemoPage() {
     }
   ])
 
+  const onAddTask = (e,task) =>{
+    e.preventDefault()
+    let id = memos.length + 1;
+    let data = [
+      ...memos,
+      {
+        id:id,
+        text:task
+      }
+    ]
+    setMemos(data)
+  }
+
   return (
     <div>
       <div className="alert alert-primary pb-0">
-        <AddForm memos={memos} />
+        <AddForm onAddTask={onAddTask}/>
       </div>
       <Memo memos={memos} />
     </div>

@@ -1,7 +1,7 @@
 import Button from "./Button";
 import { useState } from "react";
 
-const AddForm = () =>{
+const AddForm = ({onAddTask}) =>{
 
   //form text
   const [tasks,setTasks] = useState('');
@@ -10,12 +10,9 @@ const AddForm = () =>{
   const onFormChang = e =>{
     setTasks(e.target.value);
   }
-  const onAddTask = () =>{
-    console.log(tasks)
-  }
 
   return (
-    <div>
+    <form onSubmit={(e)=>onAddTask(e,tasks)}>
       <p>new memo</p>
       <input 
         text="text" 
@@ -23,12 +20,12 @@ const AddForm = () =>{
         value={tasks}
         onChange={onFormChang}
       />
-      <Button         
-        color='green' 
+      <Button  
+        color='skyblue'    
         text='Add' 
-        onAddTask={onAddTask}
+        className="btn mx-3"
       />
-    </div>
+    </form>
   )
 }
 
