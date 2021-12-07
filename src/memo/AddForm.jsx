@@ -1,29 +1,28 @@
-import Button from "./Button";
-import { useState } from "react";
+import { useState , useCallback } from "react";
+import SubmitButton from '../components/SubmitButton'
 
 const AddForm = ({onAddTask}) =>{
 
   //form text
-  const [tasks,setTasks] = useState('');
+  const [input,setInput] = useState('');
 
   //form input
-  const onFormChang = e =>{
-    setTasks(e.target.value);
-  }
+  const handleChange = useCallback(e =>{
+    setInput(e.target.value)
+  },[setInput])
 
   return (
-    <form className="my-3" onSubmit={(e)=>onAddTask(e,tasks)}>
+    <form className="addform" onSubmit={(e)=>onAddTask(e,input)}>
       <p>new memo</p>
       <input 
-        text="text" 
+        type="text" 
         placeholder="new.." 
-        value={tasks}
-        onChange={onFormChang}
+        value={input}
+        onChange={handleChange}
       />
-      <Button  
+      <SubmitButton  
         text='Add' 
-        style={{backgroundColor:'skyblue',width:'100px'}}
-        className="btn mx-3"
+        className='submitbutton'
       />
     </form>
   )

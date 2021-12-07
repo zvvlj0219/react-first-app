@@ -25,7 +25,8 @@ function MemoPage() {
         text:task
       }
     ]
-    setMemos(data)
+    setMemos(data);
+    console.log(data)
   }
 
   const onDelete = id =>{
@@ -36,7 +37,7 @@ function MemoPage() {
   }
 
   return (
-    <div>
+    <div className="memopage">
       <h4>.Memo</h4>
       <div className="alert alert-primary pb-0">
         <AddForm onAddTask={onAddTask}/>
