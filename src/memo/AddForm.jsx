@@ -12,7 +12,7 @@ const AddForm = ({onAddTask}) =>{
   }
 
   return (
-    <form onSubmit={(e)=>onAddTask(e,tasks)}>
+    <form className="my-3" onSubmit={(e)=>onAddTask(e,tasks)}>
       <p>new memo</p>
       <input 
         text="text" 
@@ -21,8 +21,8 @@ const AddForm = ({onAddTask}) =>{
         onChange={onFormChang}
       />
       <Button  
-        color='skyblue'    
         text='Add' 
+        style={{backgroundColor:'skyblue',width:'100px'}}
         className="btn mx-3"
       />
     </form>
