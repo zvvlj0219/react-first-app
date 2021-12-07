@@ -1,5 +1,5 @@
-import Memo from './Memo'
-import AddForm from './AddForm'
+import Memo from '../memo/Memo'
+import AddForm from '../memo/AddForm'
 import {useState} from 'react'
 
 function MemoPage() {
@@ -28,12 +28,23 @@ function MemoPage() {
     setMemos(data)
   }
 
+  const onDelete = id =>{
+    let data = memos.filter(memo=>{
+      return id !== memo.id
+    })
+    setMemos(data)
+  }
+
   return (
     <div>
+      <h4>.Memo</h4>
       <div className="alert alert-primary pb-0">
         <AddForm onAddTask={onAddTask}/>
       </div>
-      <Memo memos={memos} />
+      <Memo 
+        memos={memos} 
+        onDelete={onDelete}
+      />
     </div>
   )
 }
