@@ -1,12 +1,11 @@
-const Button = ({style,text,className,onAddTask}) =>{
+const SubmitButton = ({style,text,className}) =>{
   return (
     <button 
       style={style} 
       type="submit"//submit 
       className={className}
-      onClick={onAddTask}
     >{text}</button>
   )
 }
 
-export default Button
+export default SubmitButton

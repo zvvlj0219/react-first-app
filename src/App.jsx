@@ -2,13 +2,13 @@ import './App.css';
 import Header from './view/Header';
 import Router from './Router';
 
-function App() {
+const App = () =>{
   return (
     <div>
       <Header />
-      <section className="main">
+      <div className="main">
         <Router />
-      </section>
+      </div>
     </div>
   );
 }
